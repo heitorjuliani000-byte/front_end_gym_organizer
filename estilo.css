@@ -22,14 +22,28 @@ body {
 header {
     display: flex; 
     justify-content: space-between;
+    flex-wrap: wrap;
     background-color: white;
     align-items: center;
-    gap: 48px;
-    border: 1px solid #e2e8f0;
+    gap: 24px;
+    border: 1px solid white;
     border-radius: 12px;
     max-width: 1080px;
     margin: auto auto 12px auto;
     padding: 24px;
+}
+
+header img {
+    max-width: 100px;
+    width: 100%;
+    height: auto;
+    flex: 0 0 auto;
+}
+
+header > div {
+    flex: 1 1 220px;
+    min-width: 0;
+    text-align: center;
 }
 
 /* MENU DE NAVEGAÇÃO */
