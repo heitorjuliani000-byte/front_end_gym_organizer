@@ -85,7 +85,7 @@ const renderizarCalendario = () => {
     }
     
     // Adicionar dias do próximo mês
-    const diasRestantes = 42 - (primeiroDia + diasMes);
+    const diasRestantes = 35 - (primeiroDia + diasMes);
     for (let dia = 1; dia <= diasRestantes; dia++) {
         const diaElement = document.createElement('div');
         diaElement.className = 'dia-calendario dia-outra-mes';

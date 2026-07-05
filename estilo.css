@@ -777,3 +777,13 @@ section.calendario-treinos h2 {
     background-color: #e2e8f0;
     color: black;
 }
+
+/* Ocultar conteúdo (número/treinos) de dias que pertencem a outro mês,
+   mantendo os espaços do grid para alinhamento visual. */
+.dia-calendario.dia-outra-mes .dia-numero,
+.dia-calendario.dia-outra-mes .dia-treinos {
+    visibility: hidden;
+}
+.dia-calendario.dia-outra-mes {
+    pointer-events: none;
+}
