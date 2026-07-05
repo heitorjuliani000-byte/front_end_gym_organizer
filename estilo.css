@@ -1,0 +1,779 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header h1 {
+    font-size: 36px;
+    text-align: center;
+}
+header p{
+    font-size: 18px;
+    text-align: center;
+    padding-top: 16px;
+}
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: #17191b; 
+    color: #0f172a;
+    padding: 20px 20px 10px 20px;
+    line-height: 1.6;
+}
+header {
+    display: flex; 
+    justify-content: space-between;
+    background-color: white;
+    align-items: center;
+    gap: 48px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    max-width: 1080px;
+    margin: auto auto 12px auto;
+    padding: 24px;
+}
+
+/* MENU DE NAVEGAÇÃO */
+.menu-navegacao {
+    display: flex;
+    gap: 12px;
+    max-width: 1080px;
+    margin: auto auto 12px auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.btn-menu {
+    padding: 12px 20px;
+    border: 2px solid #94a3b8;
+    background-color: white;
+    color: #aaafb8;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+.btn-menu.ativo {
+    background-color: white;
+    color: black;
+}
+
+/* CONTROLE DE VISIBILIDADE DAS SECTIONS */
+section {
+    display: none;
+}
+section.secao-ativa {
+    display: block;
+}
+section.musculos{
+    text-align: center;
+    background-color: white;
+    gap: 48px;
+    border: 1px solid #94a3b8;
+    border-radius: 12px;
+    max-width: 1080px;
+    margin: auto auto 12px auto;
+    padding: 24px;
+}
+h2{
+    padding-bottom: 20px;
+}
+.form-musculo input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #94a3b8;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    color: black;
+    background: white;
+    transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+form.form-musculo {
+    display: flex;
+    gap: 40px;
+    padding-top: 35px;
+}
+.form-musculo button{
+    white-space: nowrap;
+    min-width: 120px;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+.form-musculo button:hover {
+    background-color: #198077;
+    transform: translateY(-1px);
+    box-shadow: 0 16px 30px rgba(37, 99, 235, 0.25);
+}
+.form-musculo label{
+    font-weight: 500;
+}
+input#novo-musculo {
+    max-width: 650px;
+}
+ul.lista-musculos {
+    list-style: none;
+    padding: 0;
+}
+ul.lista-musculos > li {
+    padding: 12px 0;
+    border-bottom: 1px solid #94a3b8;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.musculo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 24px;
+    cursor: pointer;
+    gap: 12px;
+    width: 100%;
+    padding-bottom: 8px;
+}
+.musculo-toggle {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+    padding: 0 4px;
+}
+.musculo-toggle.expandido {
+    transform: scaleY(-1);
+}
+.musculo-nome {
+    text-align: left;
+}
+.musculo-acoes {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.btn-adicionar-exercicio {
+    padding: 6px 12px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+.btn-deletar-musculo {
+    padding: 6px 12px;
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+.btn-deletar-musculo:hover {
+    background-color: #991b1b;
+}
+.exercicios-lista {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0 0;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+}
+.exercicios-lista.visivel {
+    display: flex;
+}
+.container-btn-adicionar {
+    padding: 0;
+    margin-top: 4px;
+}
+.container-btn-adicionar .btn-adicionar-exercicio {
+    padding: 8px 12px;
+    background-color: #198077;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    margin-left: 0;
+}
+.exercicios-lista li {
+    padding: 12px;
+    background-color: whitesmoke;
+    margin-bottom: 0;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    width: 100%;
+}
+.exercicio-nome {
+    flex: 1;
+    text-align: left;
+}
+.btn-deletar-exercicio {
+    padding: 4px 8px;
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+}
+.btn-deletar-exercicio:hover {
+    background-color: #991b1b;
+}
+.form-novo-exercicio {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    background-color: whitesmoke;
+    margin-bottom: 0;
+    border-radius: 4px;
+    align-items: center;
+}
+.input-novo-exercicio {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #94a3b8;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    color: black;
+}
+.btn-confirmar-exercicio,.btn-cancelar-form {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+.btn-confirmar-exercicio {
+    background-color: black;
+    color: white;
+}
+.btn-confirmar-exercicio:hover {
+    background-color: #198077;
+}
+.btn-cancelar-form {
+    background-color: #cbd5e1;
+    color: black;
+}
+.btn-cancelar-form:hover {
+    background-color: #cbd5e1;
+}
+
+/* SEÇÃO DE TREINO */
+section.treino {
+    text-align: left;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 12px;
+    max-width: 1080px;
+    margin: auto auto 12px auto;
+    padding: 24px;
+}
+section.treino h2 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+section.treino h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid black;
+}
+.treino-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+.selecao-musculos,.selecao-exercicios {
+    background-color: white;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+.lista-musculos-treino,.lista-exercicios-treino {
+    list-style: none;
+    padding: 0;
+}
+.lista-musculos-treino li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgb(151, 150, 150);
+}
+.lista-musculos-treino li:last-child {
+    border-bottom: none;
+}
+.checkbox-musculo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+.checkbox-musculo input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+.checkbox-musculo label {
+    flex: 1;
+    cursor: pointer;
+    font-weight: 500;
+}
+.exercicio-item {
+    padding: 12px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+.exercicio-item h4 {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: black;
+}
+.checkbox-exercicio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+}
+.checkbox-exercicio input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+.checkbox-exercicio label {
+    flex: 1;
+    cursor: pointer;
+    font-size: 14px;
+}
+.resumo-treino {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+.lista-treino {
+    list-style: none;
+    padding: 0;
+}
+.lista-treino li {
+    padding: 8px 0;
+    font-size: 14px;
+}
+.btn-salvar-treino {
+    width: 100%;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 10px;
+    background-color: #198077;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 12px 24px rgba(25, 128, 119, 0.2);
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+.btn-salvar-treino:hover {
+    background-color: #0e1014;
+    transform: translateY(-1px);
+    box-shadow: 0 16px 30px rgba(25, 128, 119, 0.25);
+}
+.btn-salvar-treino:focus {
+    outline: 3px solid rgba(25, 128, 119, 0.35);
+    outline-offset: 2px;
+}
+
+/* SEÇÃO DE FORMULÁRIO PARA NOMEAR TREINO */
+.form-nomear-treino {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+#input-nome-treino {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 16px;
+    border: 1px solid #94a3b8;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    color: black;
+    background: white;
+    transition: border-color 0.2s ease;
+}
+#input-nome-treino:focus {
+    outline: none;
+    border-color: #198077;
+    box-shadow: 0 0 0 3px rgba(25, 128, 119, 0.1);
+}
+#input-nome-treino::placeholder {
+    color: #94a3b8;
+}
+.form-nomear-treino .btn-salvar-treino {
+    flex: 0 0 auto;
+    min-width: 150px;
+    margin: 0;
+}
+.btn-salvar-treino:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+.mensagem-treino {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    animation: slideIn 0.3s ease;
+}
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.mensagem-erro {
+    background-color: #fee2e2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
+}
+.mensagem-sucesso {
+    background-color: #dcfce7;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+}
+
+/* SEÇÃO DE HISTÓRICO DE TREINOS */
+section.historico-treinos {
+    text-align: left;
+    background-color: white;
+    border: 1px solid whitesmoke;
+    border-radius: 12px;
+    max-width: 1080px;
+    margin: auto auto 12px auto;
+    padding: 24px;
+}
+section.historico-treinos h2 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+.lista-historico-treinos {
+    list-style: none;
+    padding: 0;
+}
+.treino-item {
+    padding: 16px;
+    background-color: white;
+    border: 1px solid #94a3b8;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.treino-info {
+    flex: 1;
+}
+.treino-nome {
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 4px;
+}
+.treino-data {
+    font-size: 12px;
+    color: #94a3b8;
+}
+.treino-acoes {
+    display: flex;
+    gap: 8px;
+}
+.btn-visualizar-treino,.btn-deletar-treino {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+    color: white;
+}
+.btn-visualizar-treino {
+    background-color: black;
+}
+.btn-deletar-treino {
+    background-color: #dc2626;
+}
+.lista-historico-treinos li:last-child {
+    margin-bottom: 0;
+}
+.empty-state {
+    text-align: center;
+    padding: 32px 16px;
+    color: #64748b;
+}
+.empty-state p {
+    font-size: 14px;
+}
+
+/* CONTEÚDO EXPANDÍVEL DO TREINO */
+.treino-conteudo {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background-color: white;
+    border-radius: 6px;
+    order: 3;
+}
+.treino-conteudo.visivel {
+    max-height: 1000px;
+    padding: 12px;
+    background-color: #e2edf0;
+    border: 1px solid #c4e6f0;
+    margin-top: 12px;
+}
+.lista-treino-detalhes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.musculo-treino-item {
+    padding: 12px;
+    background-color: white;
+    border-left: 4px solid #69abbd;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+.musculo-treino-item:last-child {
+    margin-bottom: 0;
+}
+.musculo-treino-item strong {
+    display: block;
+    color: black;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+.exercicios-musculo-item {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-left: 12px;
+}
+.exercicios-musculo-item li {
+    padding: 6px 0;
+    color: black;
+    font-size: 14px;
+    border-bottom: 1px solid whitesmoke;
+}
+.exercicios-musculo-item li:last-child {
+    border-bottom: none;
+}
+
+/* SEÇÃO DE CALENDÁRIO DE TREINOS */
+section.calendario-treinos {
+    text-align: left;
+    background-color: white;
+    border: 3px solid whitesmoke;
+    border-radius: 12px;
+    max-width: 1080px;
+    margin: auto auto 12px auto;
+    padding: 24px;
+}
+section.calendario-treinos h2 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+.calendario-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 16px;
+}
+.calendario-controls h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+    flex: 1;
+    text-align: center;
+    min-width: 200px;
+}
+.btn-mes {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background-color: black;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+.calendario-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+.dia-semana-header {
+    text-align: center;
+    font-weight: 600;
+    padding: 12px 8px;
+    background-color: whitesmoke;
+    border-radius: 6px;
+    color: black;
+    font-size: 14px;
+}
+.dia-calendario {
+    min-height: 100px;
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 6px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+.dia-calendario:hover {
+    background-color: whitesmoke;
+    border-color: black;
+}
+.dia-numero {
+    font-weight: 600;
+    color: black;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+.dia-treinos {
+    flex: 1;
+    font-size: 11px;
+    overflow-y: auto;
+}
+.treino-dia {
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 4px 6px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: black;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+.treino-dia:hover {
+    background-color: #0e7490;
+}
+.treino-dia.selecionado {
+    background-color: whitesmoke;
+    color: white;
+    border-color: #0e7490;
+}
+.modal-treino {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.modal-conteudo {
+    background-color: white;
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+}
+.modal-header {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 16px;
+}
+.modal-treinos-lista {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 16px;
+}
+.modal-treino-item {
+    padding: 12px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.modal-treino-item:hover {
+    border-color: #0e7490;
+}
+.modal-treino-item.ativo {
+    background-color: whitesmoke;
+    border: 2px solid #0e7490;
+}
+.modal-botoes {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+.modal-btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+.modal-btn-confirmar {
+    background-color: black;
+    color: white;
+}
+.modal-btn-cancelar {
+    background-color: #e2e8f0;
+    color: black;
+}

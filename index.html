@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acompanhamento de treino</title>
+    <link rel="stylesheet" href="estilo.css" />
+
+</head>
+<body>
+    <main>
+        <header>
+        <img src="./imagens/haltere.png" alt="Imagem de um Haltere"/>
+        <div>
+            <h1>Gym Organizer</h1>
+            <p>Monte, registre e acompanhe seus treinos</p>
+        </div>
+        <img src="./imagens/haltere.png" alt="Imagem de um Haltere"/>
+        </header>
+
+        <nav class="menu-navegacao">
+            <button class="btn-menu ativo" data-secao="musculos">Agrupamentos Musculares</button>
+            <button class="btn-menu" data-secao="treino-e-historico">Montar Treino</button>
+            <button class="btn-menu" data-secao="calendario">Calendário de Treinos</button>
+        </nav>
+
+        <section class="musculos secao-ativa">
+        <h2>Agrupamentos musculares</h2>
+        <ul class="lista-musculos"></ul>
+        <form class="form-musculo">
+            <label for="novo-musculo">Adicionar agrupamento muscular</label>
+            <input
+                id="novo-musculo"
+                name="musculo"
+                type="text"
+                placeholder="Você deseja adicionar mais algum agrupamento muscular?"
+                required
+            />
+            <button type="submit">Salvar</button>
+        </form>
+        </section>
+
+        <section class="treino grupo-treino">
+        <h2>Montar Treino</h2>
+        <div class="treino-container">
+            <div class="selecao-musculos">
+                <h3>Selecionar Agrupamentos</h3>
+                <ul class="lista-musculos-treino"></ul>
+            </div>
+            <div class="selecao-exercicios">
+                <h3>Selecionar Exercícios</h3>
+                <div class="lista-exercicios-treino"></div>
+            </div>
+        </div>
+        <div class="resumo-treino">
+            <h3>Resumo do Treino</h3>
+            <ul class="lista-treino"></ul>
+        </div>
+        <div class="form-nomear-treino">
+            <input type="text" id="input-nome-treino" placeholder="Digite o nome do treino" />
+            <button class="btn-salvar-treino">Salvar Treino</button>
+        </div>
+        </section>
+
+        <section class="historico-treinos grupo-treino">
+        <h2>Treinos Montados</h2>
+        <ul class="lista-historico-treinos"></ul>
+        </section>
+
+        <section class="calendario-treinos grupo-calendario">
+        <h2>Calendário de Treinos</h2>
+        <div class="calendario-controls">
+            <button id="btn-mes-anterior" class="btn-mes">← Anterior</button>
+            <h3 id="mes-ano-atual"></h3>
+            <button id="btn-mes-proximo" class="btn-mes">Próximo →</button>
+        </div>
+        <div class="calendario-grid" id="calendario-grid"></div>
+        </section>
+    </main>
+
+<script src="./agrupamentos.js"></script>
+<script src="./treino.js"></script>
+<script src="./calendario.js"></script>
+</body>
+</html>
