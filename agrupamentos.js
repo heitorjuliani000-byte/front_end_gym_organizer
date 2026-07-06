@@ -1,4 +1,4 @@
-// MENU DE NAVEGAÇÃO
+// Menu de navegação entre seções
 const botoesMenu = document.querySelectorAll('.btn-menu');
 
 botoesMenu.forEach(botao => {
@@ -28,10 +28,10 @@ botoesMenu.forEach(botao => {
     });
 });
 
+// Arrays dos agrupamentos musculares e exercícios
 const formMusculo = document.querySelector('.form-musculo');
 const inputMusculo = document.getElementById('novo-musculo');
 const listaMusculos = document.querySelector('.lista-musculos');
-
 const musculosPadrao = [
     { nome: 'Peito', exercicios: ['Supino', 'Crucifixo', 'Fly'] },
     { nome: 'Tríceps', exercicios: ['Tríceps barra', 'Francês', 'Tríceps testa'] },
@@ -249,7 +249,6 @@ formMusculo.addEventListener('submit', (evento) => {
     musculos.push({ nome: novoMusculo, exercicios: [] });
     salvarMusculos();
     renderizarMusculos();
-
     formMusculo.reset();
 });
 
